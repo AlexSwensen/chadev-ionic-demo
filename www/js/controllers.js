@@ -2,9 +2,13 @@ angular.module('starter.controllers', [])
 
 .controller('HomeCtrl', function($scope) {
 
+  $scope.task = {
+    text: ''
+  }; // Define model 
 
   $scope.add = function () {
-    $scope.list.push('thing ' + ($scope.list.length + 1));
+    $scope.list.push($scope.task.text); // Add text to $scope.list
+    $scope.task.text = ''; // Clear Text
   };
 
   $scope.list = [

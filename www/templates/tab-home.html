@@ -1,6 +1,18 @@
 <ion-view view-title="Dashboard">
   <ion-content class="">
-    <button class="button button-positive" ng-click="add()">Add</button>
+    <!--Begin Input-->
+    <div class="list">
+      <div class="item item-input-inset">
+        <label class="item-input-wrapper">
+          <input type="text" placeholder="Task"
+                 ng-model="task.text">
+          <!--ng-model defines $scope'd objects the form binds to -->
+        </label>
+        <button class="button button-small button-positive"
+                ng-click="add()">Add</button>
+      </div>
+    </div>
+    <!--End Input-->
     <div class="list">
       <div class="item" ng-repeat="item in list">
         {{item}}
