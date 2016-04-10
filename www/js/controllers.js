@@ -1,6 +1,8 @@
-angular.module('starter.controllers', [])
+angular.module('starter.controllers', ['ngStorage'])
 
-.controller('HomeCtrl', function($scope) {
+.controller('HomeCtrl', function($scope, $localStorage) {
+
+  $scope.$storage = $localStorage;
 
   $scope.task = {
     text: ''
@@ -9,16 +11,15 @@ angular.module('starter.controllers', [])
   $scope.add = function () {
     $scope.list.push($scope.task.text); // Add text to $scope.list
     $scope.task.text = ''; // Clear Text
+    $scope.$storage.list = $scope.list; //update our list
   };
 
-  $scope.list = [
-    'thing 1',
-    'thing 2',
-    'thing 3'
-  ];
- 
+  $scope.list = $scope.$storage.list || [];
+  // set to last storage, or blank arary if storage is blank.
+
   $scope.deleteItem = function (index) { // function to delete items.
     $scope.list.splice(index, 1);
+    $scope.$storage.list = $scope.list; //update our list.
   }
 
 
