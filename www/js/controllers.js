@@ -4,7 +4,7 @@ angular.module('starter.controllers', [])
 
   $scope.task = {
     text: ''
-  }; // Define model 
+  }; // Define model
 
   $scope.add = function () {
     $scope.list.push($scope.task.text); // Add text to $scope.list
@@ -16,6 +16,10 @@ angular.module('starter.controllers', [])
     'thing 2',
     'thing 3'
   ];
+ 
+  $scope.deleteItem = function (index) { // function to delete items.
+    $scope.list.splice(index, 1);
+  }
 
 
 });

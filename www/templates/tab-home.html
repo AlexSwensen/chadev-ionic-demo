@@ -14,8 +14,11 @@
     </div>
     <!--End Input-->
     <div class="list">
-      <div class="item" ng-repeat="item in list">
+      <div class="item item-button-right"
+           ng-repeat="item in list track by $index">
         {{item}}
+        <button class="button button-small button-assertive"
+                ng-click="deleteItem($index)">Delete</button>
       </div>
     </div>
   </ion-content>
